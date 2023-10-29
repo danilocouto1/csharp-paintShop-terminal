@@ -1,6 +1,6 @@
 namespace PaintShop;
 
-// 3 - Crie uma classe estática PaintUtilities
+// 3 - Crie uma classe estática  SquareMetersPerBucket
 public static class PaintUtilities
 {
     public static int SquareMetersPerBucket
@@ -11,8 +11,8 @@ public static class PaintUtilities
         }
     }
 
-    public static int BucketSizeLiters = 20;
-    public static int SquareMetersPerLiter = 10;
+    public static int BucketSizeLiters { get; } = 20;
+    public static int SquareMetersPerLiter { get; } = 10;
 
     public static int GetNeededPaintBuckets(double area) {
          int balde = Convert.ToInt32(Math.Ceiling(area / SquareMetersPerBucket));
