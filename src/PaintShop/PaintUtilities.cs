@@ -3,29 +3,41 @@ namespace PaintShop;
 // 3 - Crie uma classe estática PaintUtilities
 public static class PaintUtilities
 {
-    public static int SquareMetersPerBucket;
+    public static int SquareMetersPerBucket
+    {
+        get
+        {
+            return BucketSizeLiters * SquareMetersPerLiter;
+        }
+    }
+
+    public static int BucketSizeLiters = 20;
+    public static int SquareMetersPerLiter = 10;
 
     public static int GetNeededPaintBuckets(double area) {
-         throw new NotImplementedException();
+         int balde = Convert.ToInt32(Math.Ceiling(area / SquareMetersPerBucket));
+        return balde;
     }
 
     public static int GetNeededPaintBuckets(Wall wall) {
-        throw new NotImplementedException();
+        int balde = Convert.ToInt32(Math.Ceiling(wall.PaintableArea / SquareMetersPerBucket));
+        return balde;
     }
 
     public static int GetNeededPaintBuckets(Room room) {
-        throw new NotImplementedException();
+        int balde = Convert.ToInt32(Math.Ceiling(room.TotalPaintableArea / SquareMetersPerBucket));
+        return balde;
     }
 
     public static decimal CalculateCost(decimal price, double area) {
-        throw new NotImplementedException();
+        return GetNeededPaintBuckets(area) * price;
     }
 
     public static decimal CalculateCost(decimal price, Wall wall) {
-        throw new NotImplementedException();
+        return GetNeededPaintBuckets(wall.PaintableArea) * price;
     }
 
     public static decimal CalculateCost(decimal price, Room room) {
-        throw new NotImplementedException();
+        return GetNeededPaintBuckets(room.TotalPaintableArea) * price; ;
     }
 }
